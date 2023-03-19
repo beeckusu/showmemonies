@@ -1,14 +1,14 @@
 import { useContext } from 'react';
-import { BudgetContext } from '../../context/BudgetContext';
+import { BudgetContext, ACTION_DELETE_TRANSACTION } from '../../context/BudgetContext';
 import Table from 'react-bootstrap/Table';
 
 const Transaction = ({ transaction }) => {
-    
+
     const { dispatch } = useContext(BudgetContext);
 
     const handleDeleteTransaction = () => {
         dispatch({
-            type: 'DELETE_TRANSACTION',
+            type: ACTION_DELETE_TRANSACTION,
             payload: transaction,
         });
     };
@@ -48,7 +48,7 @@ const AdjustTransactions = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {transactions.income.map((item, index) => (<Transaction key={index} transaction={item} />))}
+                            {transactions.income.map((income, index) => (<Transaction key={index} transaction={income} />))}
                         </tbody>
                     </Table>
                 )
@@ -65,7 +65,7 @@ const AdjustTransactions = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {transactions.expenses.map((item, index) => (<Transaction key={index} transaction={item} />))}
+                            {transactions.expenses.map((expense, index) => (<Transaction key={index} transaction={expense} />))}
                         </tbody>
                     </Table>
                 )

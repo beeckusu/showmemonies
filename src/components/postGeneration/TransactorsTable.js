@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { BudgetContext } from '../../context/BudgetContext';
+import { BudgetContext, ACTION_DELETE_TRANSACTOR, ACTION_UPDATE_TRANSACTOR_TAG } from '../../context/BudgetContext';
 import Table from 'react-bootstrap/Table';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 
-const TransactorTags = ({ transactor, tags }) => {
+const TagsDropdown = ({ transactor, tags }) => {
     const { dispatch } = useContext(BudgetContext);
 
     const handleSelectTag = (tagID) => {
@@ -17,15 +17,15 @@ const TransactorTags = ({ transactor, tags }) => {
         };
 
         dispatch({
-            type: 'UPDATE_TRANSACTOR_TAG',
+            type: ACTION_UPDATE_TRANSACTOR_TAG,
             payload: tagDetails,
         });
     };
 
     return (
-        <DropdownButton title={transactor.tags.length !== 0 ? transactor.tags[0].name : ""} onSelect={(tagID) => {handleSelectTag(tagID)}}>
+        <DropdownButton title={transactor.tags.length !== 0 ? transactor.tags[0].name : ""} onSelect={(tagID) => { handleSelectTag(tagID) }}>
             {tags.map(tag => (
-                <Dropdown.Item eventKey={tag.id}>
+                <Dropdown.Item key={tag.id} eventKey={tag.id}>
                     {tag.name}
                 </Dropdown.Item>
             ))}
@@ -39,7 +39,7 @@ const Transactor = ({ transactor }) => {
 
     const handleDeleteTransactor = () => {
         dispatch({
-            type: 'DELETE_TRANSACTOR',
+            type: ACTION_DELETE_TRANSACTOR,
             payload: transactor,
         });
     };
@@ -47,17 +47,15 @@ const Transactor = ({ transactor }) => {
     return (
         <tr>
             <td>{transactor.name}</td>
-            <td><TransactorTags transactor={transactor} tags={tags} /></td>
+            <td><TagsDropdown transactor={transactor} tags={tags} /></td>
             <td><button onClick={handleDeleteTransactor}>Delete</button></td>
         </tr>
     );
 }
 
-const AdjustTransactors = () => {
+const TransactorsTable = () => {
 
     const { transactions } = useContext(BudgetContext);
-
-
 
     return (
         <div>
@@ -84,4 +82,4 @@ const AdjustTransactors = () => {
     );
 };
 
-export default AdjustTransactors;
+export default TransactorsTable;

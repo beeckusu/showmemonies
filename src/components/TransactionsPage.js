@@ -1,6 +1,6 @@
 import { Card, Tab, Tabs } from "react-bootstrap";
 import AdjustTags from "./postGeneration/AdjustTags";
-import AdjustTransactors from "./postGeneration/AdjustTransactors";
+import TransactorsTable from "./postGeneration/TransactorsTable";
 import AdjustTransactions from "./postGeneration/AdjustTransactions";
 
 import '../css/layout.css';
@@ -16,7 +16,7 @@ const TransactionsPage = () => {
                     <AdjustTags />
                 </Tab>
                 <Tab eventKey="transactors" title="Transactors">
-                    <AdjustTransactors />
+                    <TransactorsTable />
                 </Tab>
                 <Tab eventKey="transactions" title="Transactions">
                     <AdjustTransactions />

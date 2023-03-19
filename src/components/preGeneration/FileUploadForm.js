@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import FileGenerator from '../../logic/data_generators/FileGenerator';
 import React, { useContext, useState } from 'react';
 
-import { BudgetContext } from '../../context/BudgetContext';
+import { BudgetContext,  ACTION_PARSE_FILE } from '../../context/BudgetContext';
 
 const FileUploadForm = () => {
 
@@ -28,7 +28,7 @@ const FileUploadForm = () => {
         }
     
         dispatch({
-          type: 'PARSE_FILE',
+          type: ACTION_PARSE_FILE,
           payload: fileDetails,
         });
     

@@ -1,4 +1,4 @@
-import { BudgetContext } from "../../context/BudgetContext";
+import { BudgetContext, ACTION_ADD_TAG, ACTION_UPDATE_TAG, ACTION_REMOVE_TAG } from "../../context/BudgetContext";
 import { useContext } from 'react';
 import Table from 'react-bootstrap/Table';
 import { v4 as uuidv4 } from 'uuid';
@@ -23,7 +23,7 @@ const TagRow = ({tag}) => {
         }
 
         dispatch({
-            type: 'REMOVE_TAG',
+            type: ACTION_REMOVE_TAG,
             payload: tagDetails,
         });
     }
@@ -37,7 +37,7 @@ const TagRow = ({tag}) => {
         }
 
         dispatch({
-            type: 'UPDATE_TAG',
+            type: ACTION_UPDATE_TAG,
             payload: tagDetails,
         });
     }
@@ -50,7 +50,7 @@ const TagRow = ({tag}) => {
         }
 
         dispatch({
-            type: 'UPDATE_TAG',
+            type: ACTION_UPDATE_TAG,
             payload: tagDetails,
         });
     }
@@ -90,7 +90,7 @@ const AdjustTags = () => {
         }
 
         dispatch({
-            type: 'ADD_TAG',
+            type: ACTION_ADD_TAG,
             payload: tagDetails,
         });
         console.log(tags);
