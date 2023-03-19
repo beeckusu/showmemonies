@@ -1,0 +1,10 @@
+.circular-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 50%;
+    text-align: center;
+}
