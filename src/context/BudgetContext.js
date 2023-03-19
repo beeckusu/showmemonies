@@ -80,7 +80,7 @@ const initialState = {
 
 export const BudgetContext = createContext();
 
-export const AppProvider = (props) => {
+export const AppProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     return (
@@ -91,7 +91,7 @@ export const AppProvider = (props) => {
                 transactions: state.transactions,
                 dispatch,
             }}>
-            {props.children}
+            {children}
         </BudgetContext.Provider>
     );
 }

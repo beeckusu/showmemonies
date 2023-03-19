@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { BudgetContext } from '../../context/BudgetContext';
 import Table from 'react-bootstrap/Table';
 
-const Transaction = (props) => {
-    const { transaction } = props;
+const Transaction = ({ transaction }) => {
+    
     const { dispatch } = useContext(BudgetContext);
 
     const handleDeleteTransaction = () => {

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 
-const SideTab = (props) => {
+const SideTab = ({content}) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -18,7 +18,7 @@ const SideTab = (props) => {
             <div style={{ display: 'flex', flexDirection: 'row-reverse', position: 'relative', top:'70px'}}>
                 <Collapse in={open} dimension="width">
                     <div id="example-collapse-text">
-                        {props.content}
+                        {content}
                     </div>
                 </Collapse>
             </div>

@@ -11,11 +11,9 @@ class Tag {
     }
 }
 
-const TagRow = (props) => {
+const TagRow = ({tag}) => {
 
     const { dispatch } = useContext(BudgetContext);
-
-    const tag = props.tag;
 
     const handleRemoveTag = (event) => {
         event.preventDefault();

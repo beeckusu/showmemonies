@@ -29,7 +29,7 @@ const initialState = {
 
 export const GraphContext = createContext();
 
-export const GraphProvider = (props) => {
+export const GraphProvider = ({children}) => {
     const [state, dispatch] = useReducer(GraphReducer, initialState);
 
     return (
@@ -39,7 +39,7 @@ export const GraphProvider = (props) => {
                 dateRange: state.dateRange,
                 dispatch,
             }}>
-            {props.children}
+            {children}
         </GraphContext.Provider>
     );
 }
