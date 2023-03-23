@@ -26,19 +26,14 @@ const Transaction = ({ transaction }) => {
 const AdjustTransactions = () => {
     const { transactions } = useContext(BudgetContext);
 
-    if (transactions.transactors === null || transactions.transactors.length === 0) {
-        return (
-            <div>
-                No data available.
-            </div>
-        );
-    }
+    const defaultTransactors = {income: [], expenses: []}
+    const {income = [], expenses = []} = transactions || defaultTransactors;
 
     return (
         <div>
             <h1>Income</h1>
             {
-                transactions.income.length === 0 ? (<p>No data available.</p>) : (
+                income.length === 0 ? (<p>No data available.</p>) : (
                     <Table striped bordered hover>
                         <thead>
                             <tr>
@@ -48,14 +43,14 @@ const AdjustTransactions = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {transactions.income.map((income, index) => (<Transaction key={index} transaction={income} />))}
+                            {income.map((income, index) => (<Transaction key={index} transaction={income} />))}
                         </tbody>
                     </Table>
                 )
             }
             <h1>Expenses</h1>
             {
-                transactions.expenses.length === 0 ? (<p>No data available.</p>) : (
+                expenses.length === 0 ? (<p>No data available.</p>) : (
                     <Table striped bordered hover>
                         <thead>
                             <tr>
@@ -65,7 +60,7 @@ const AdjustTransactions = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {transactions.expenses.map((expense, index) => (<Transaction key={index} transaction={expense} />))}
+                            {expenses.map((expense, index) => (<Transaction key={index} transaction={expense} />))}
                         </tbody>
                     </Table>
                 )

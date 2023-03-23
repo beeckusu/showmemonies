@@ -27,10 +27,7 @@ const AppReducer = (state, action) => {
         case ACTION_ADD_TAG:
 
             if (!state.tags.includes(action.payload.tag)) {
-                console.log("Adding tag");
                 state.tags.push(action.payload.tag);
-            } else {
-                console.log("Tag exists");
             }
 
             return {
@@ -55,7 +52,6 @@ const AppReducer = (state, action) => {
             }
         
         case ACTION_UPDATE_TRANSACTOR_TAG:
-            console.log("UPDATE");
             return {
                 ...state
             }

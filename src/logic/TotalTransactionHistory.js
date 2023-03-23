@@ -30,7 +30,6 @@ class TotalTransactionHistory {
         else {
             this.expenses = this.expenses.filter((source) => source["id"] !== transaction["id"]);
         }
-        console.log(transaction);
     }
 
     removeTag(tagToRemove) {

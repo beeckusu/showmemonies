@@ -51,8 +51,6 @@ function fetchChartData(transactions, interval) {
         }
         return data;
     }, []);
-    console.log("Before: ");
-    console.log(amountByIntervalAndTag);
 
     // Transform data to format expected by BarChart
     const data = amountByIntervalAndTag.map(item => {
@@ -62,8 +60,6 @@ function fetchChartData(transactions, interval) {
         });
         return result;
     });
-    console.log(data);
-
     return data;
 }
 

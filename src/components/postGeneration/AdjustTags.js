@@ -93,7 +93,6 @@ const AdjustTags = () => {
             type: ACTION_ADD_TAG,
             payload: tagDetails,
         });
-        console.log(tags);
     }
 
     return (
